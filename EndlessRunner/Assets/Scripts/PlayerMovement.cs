@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour
+{
     bool alive = true;
     bool isJumping = false;
 
@@ -13,9 +13,19 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] float horizontalMultiplier = 2;
     [SerializeField] float jumpForce = 400f;
     [SerializeField] LayerMask groundMask;
-    public float speedIncreasePerPoint = 0.1f;
+    public float speedIncreasePerPoint = 0.05f;
+    [SerializeField] GameManager gameManager;
+    private Animator animator;
 
-    private void FixedUpdate ()
+
+    private void Start()
+    {
+        gameManager = GameManager.inst;
+        animator = GetComponent<Animator>();
+
+    }
+
+    private void FixedUpdate()
     {
         if (!alive) return;
 
@@ -24,36 +34,38 @@ public class PlayerMovement : MonoBehaviour {
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
     }
 
-
-    private void Update () {
-
+    private void Update()
+    {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-           Jump();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
         }
 
-        if (transform.position.y < -5) {
+        if (transform.position.y < -5)
+        {
             Die();
         }
     }
 
-    public void Die ()
+    public void Die()
     {
         alive = false;
-        // Restart the game
-        Invoke("Restart", 2);
+        animator.SetTrigger("Die"); // Ativa a animação de morte
+        gameManager.GameOver();
     }
 
-    void Restart ()
+    void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void Jump(){
+    void Jump()
+    {
         // Verificar se já estamos pulando
         if (isJumping) return;
-        
+
         // Verificar se estamos no chão
         if (Mathf.Abs(rb.velocity.y) < 0.1f)
         {

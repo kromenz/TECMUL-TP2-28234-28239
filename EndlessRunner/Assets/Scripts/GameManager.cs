@@ -9,9 +9,8 @@ public class GameManager : MonoBehaviour {
     int score;
     bool jogoIniciado = false;  // Variável para controlar se o jogo foi iniciado
     public static GameManager inst;
-
+    private bool gameIsOver = false;
     [SerializeField] Text scoreText;
-
     [SerializeField] PlayerMovement playerMovement;
 
     public void IncrementScore()
@@ -28,7 +27,10 @@ public class GameManager : MonoBehaviour {
         return jogoIniciado;
     }
 
-
+    public void GameOver()
+    {
+        
+    }
 
     private void Awake ()
     {
