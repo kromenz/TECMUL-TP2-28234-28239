@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
     private void Awake ()
     {
         inst = this;
@@ -62,6 +61,10 @@ public class GameManager : MonoBehaviour {
         jogoIniciado = true;
     }
 
+    public void ResetGame()
+    {
+        jogoIniciado = false;
+    }
 
 	private void Update () {
         
