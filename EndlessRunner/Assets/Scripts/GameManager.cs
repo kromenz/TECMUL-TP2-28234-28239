@@ -44,17 +44,19 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start () {
-
         gameOverUI.SetActive(false);
+
         if (SceneManager.GetActiveScene().buildIndex == 0) // Verifica se é a cena do menu (índice 0)
         {
             scoreText.gameObject.SetActive(false);
+            gameOverUI.SetActive(false); // Desativa o objeto gameOverUI no início do jogo
         }
         else  // Se não for a cena do menu, inicia o jogo
         {
             StartGame();
         }
-	}
+    }
+
 
     public void StartGame()
     {
@@ -72,9 +74,13 @@ public class GameManager : MonoBehaviour {
 
     public void restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        jogoIniciado = true; // Adicione essa linha para reiniciar o jogo
     }
 
     public void sair(){
-        SceneManager.LoadScene("Menu");
+        gameOverUI.SetActive(false); // Desativa o objeto gameOverUI antes de resetar o jogo
+        ResetGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+
 }
