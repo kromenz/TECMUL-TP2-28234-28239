@@ -72,3 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.assets
 *.resS
+EndlessRunner/Library/il2cpp_cache/linkresult_5053C1EB1BDA731828C8FEBA70927FF6/build.bc
