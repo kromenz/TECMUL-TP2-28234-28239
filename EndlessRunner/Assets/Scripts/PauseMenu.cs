@@ -37,9 +37,9 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void QuitGame()
-{
-    Time.timeScale = 1.0f; // Certifique-se de redefinir o Time.timeScale para 1 antes de sair
-    SceneManager.LoadScene("Menu"); // Substitua "MenuPrincipal" pelo nome da sua cena do menu principal
-}
+    {
+        Time.timeScale = 1.0f; // Certifique-se de redefinir o Time.timeScale para 1 antes de sair
+        SceneManager.LoadScene("Menu"); // Substitua "MenuPrincipal" pelo nome da sua cena do menu principal
+    }
 
 }

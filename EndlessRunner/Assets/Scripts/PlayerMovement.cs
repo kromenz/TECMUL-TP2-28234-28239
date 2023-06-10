@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameManager gameManager;
     private Animator animator;
 
-
     private void Start()
     {
         gameManager = GameManager.inst;
@@ -43,16 +42,16 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        if (transform.position.y < -5)
+        if (transform.position.y < -5 && !alive)
         {
             Die();
         }
     }
 
     public void Die()
-    {
+    {   
         alive = false;
-        animator.SetTrigger("Die"); // Ativa a animação de morte
+        gameObject.SetActive(false);
         gameManager.GameOver();
     }
 

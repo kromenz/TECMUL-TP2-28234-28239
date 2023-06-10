@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     private bool gameIsOver = false;
     [SerializeField] Text scoreText;
     [SerializeField] PlayerMovement playerMovement;
+    public GameObject gameOverUI;
+
 
     public void IncrementScore()
     {
@@ -29,8 +31,13 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
     {
-        
+        if (!gameIsOver)
+        {
+            gameIsOver = true;
+            gameOverUI.SetActive(true);
+        }
     }
+
 
     private void Awake ()
     {
@@ -39,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start () {
 
+        gameOverUI.SetActive(false);
         if (SceneManager.GetActiveScene().buildIndex == 0) // Verifica se é a cena do menu (índice 0)
         {
             scoreText.gameObject.SetActive(false);
@@ -56,6 +64,14 @@ public class GameManager : MonoBehaviour {
 
 
 	private void Update () {
-	
+        
 	}
+
+    public void restart(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void sair(){
+        SceneManager.LoadScene("Menu");
+    }
 }
