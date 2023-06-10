@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
         score++;
         scoreText.text = "MOEDAS: " + score;
         playerMovement.speed += playerMovement.speedIncreasePerPoint;
+        
 
     }
 

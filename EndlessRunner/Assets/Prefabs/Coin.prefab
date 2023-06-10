@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 90
-  coinSound: {fileID: 0}
+  coinSound: {fileID: 8300000, guid: f4d4b20991f06f747980ebb13117fcee, type: 3}
 --- !u!33 &681084056512101513
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -137,8 +137,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a85f39d99e0840d4cac4379b1ba3fa92, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: f4d4b20991f06f747980ebb13117fcee, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

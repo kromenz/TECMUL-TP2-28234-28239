@@ -2,34 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Coin : MonoBehaviour {
-
+public class Coin : MonoBehaviour
+{
     [SerializeField] float turnSpeed = 90f;
+    public AudioClip coinSound;
 
-    private void OnTriggerEnter (Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Obstacle>() != null) {
+        if (other.gameObject.GetComponent<Obstacle>() != null)
+        {
             Destroy(gameObject);
             return;
         }
 
-        // Check that the object we collided with is the player
-        if (other.gameObject.name != "Player") {
+        if (other.gameObject.name != "Player")
+        {
             return;
         }
 
-        // Add to the player's score
-        GameManager.inst.IncrementScore();
+        // Reproduz o som da moeda quando há colisão com o jogador
+        AudioSource.PlayClipAtPoint(coinSound, transform.position);
 
-        // Destroy this coin object
+        GameManager.inst.IncrementScore();
         Destroy(gameObject);
     }
 
-    private void Start () {
-
-	}
-
-	private void Update () {
+    private void Update()
+    {
         transform.Rotate(0, 0, turnSpeed * Time.deltaTime);
-	}
+    }
 }
