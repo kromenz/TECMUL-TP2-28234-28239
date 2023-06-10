@@ -9,7 +9,9 @@ public class EntrarJogo : MonoBehaviour{
 
     public void PlayGame()
     {
-        GameManager.inst.StartGame();  // Chama o método StartGame() do GameManager
+        GameManager.inst.ResetGame(); // Certifique-se de que o jogo esteja resetado antes de iniciá-lo
         SceneManager.LoadScene(1);
+        GameManager.inst.StartGame(); // Defina o jogo como iniciado após carregar a cena correta
     }
+
 }

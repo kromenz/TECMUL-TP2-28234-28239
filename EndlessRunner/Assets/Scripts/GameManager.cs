@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField] PlayerMovement playerMovement;
     public GameObject gameOverUI;
 
-
     public void IncrementScore()
     {
         if (!jogoIniciado) return;  // Se o jogo não foi iniciado, não incremente a pontuação
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
     {
-        if (!gameIsOver)
+        if (!gameIsOver && jogoIniciado)
         {
             gameIsOver = true;
             gameOverUI.SetActive(true);
@@ -44,6 +43,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start () {
+
         gameOverUI.SetActive(false);
 
         if (SceneManager.GetActiveScene().buildIndex == 0) // Verifica se é a cena do menu (índice 0)
@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour {
             StartGame();
         }
     }
-
 
     public void StartGame()
     {
@@ -76,11 +75,4 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         jogoIniciado = true; // Adicione essa linha para reiniciar o jogo
     }
-
-    public void sair(){
-        gameOverUI.SetActive(false); // Desativa o objeto gameOverUI antes de resetar o jogo
-        ResetGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
-
 }
