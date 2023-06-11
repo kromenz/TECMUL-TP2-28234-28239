@@ -7,7 +7,7 @@ public class GroundTile : MonoBehaviour {
     [SerializeField] GameObject coinPrefab;
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject tallObsPrefab;
-    [SerializeField] float tallObsChance = 0.2f;
+    [SerializeField] float tallObsChance = 0.5f;
     
 
     private void Start () {
@@ -27,7 +27,7 @@ public class GroundTile : MonoBehaviour {
         GameObject obstacleToSpawn = obstaclePrefab;
         float random = Random.Range(0f, 1f);
 
-        if(random < tallObsChance){
+        if(random < 0.35){
             obstacleToSpawn = tallObsPrefab;
         }
 
@@ -42,10 +42,16 @@ public class GroundTile : MonoBehaviour {
 
     public void SpawnCoins ()
     {
-        int coinsToSpawn = 5;
-        for (int i = 0; i < coinsToSpawn; i++) {
-            GameObject temp = Instantiate(coinPrefab, transform);
-            temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+        float random = Random.Range(0f, 1f);
+        if(random > 0.15f){
+            int coinsToSpawn = 5;
+            for (int i = 0; i < coinsToSpawn; i++) {
+                float random2 = Random.Range(0f, 1f);
+                if(random2 > 0.65f){
+                    GameObject temp = Instantiate(coinPrefab, transform);
+                    temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+                }
+            }
         }
     }
 
