@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] Text scoreText;
     [SerializeField] PlayerMovement playerMovement;
     public GameObject gameOverUI;
+     
 
     public void IncrementScore()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
 
         score++;
         scoreText.text = "MOEDAS: " + score;
+        scoreText.color = new Color(1f, 1f, 1f);
         playerMovement.speed += (playerMovement.speedIncreasePerPoint/3);
         
 
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour {
 
     public bool JogoIniciado()
     {
+        
         return jogoIniciado;
     }
 
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start () {
+        scoreText.color = new Color(0f, 0f, 0f);
 
         gameOverUI.SetActive(false);
 
