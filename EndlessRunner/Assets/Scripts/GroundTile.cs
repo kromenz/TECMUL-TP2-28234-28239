@@ -3,13 +3,16 @@
 public class GroundTile : MonoBehaviour {
 
     GroundSpawner groundSpawner;
+    GroundSpawner wallSpawner;
     [SerializeField] GameObject coinPrefab;
     [SerializeField] GameObject obstaclePrefab;
     [SerializeField] GameObject tallObsPrefab;
     [SerializeField] float tallObsChance = 0.2f;
+    
 
     private void Start () {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
+        wallSpawner = GameObject.FindObjectOfType<GroundSpawner>();
 	}
 
     private void OnTriggerExit (Collider other)

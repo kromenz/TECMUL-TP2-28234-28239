@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 69e10e886d52d20478f9ed5424126be8, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -497,6 +497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 6682584033024778767, guid: d1d029f422445b645ba46a23ef8b1fc6,
+    type: 3}
+  WallPrefab: {fileID: 4002993380585561226, guid: c3edd815f6c4d3142a5e93126c5eaf7c,
     type: 3}
 --- !u!4 &126221220
 Transform:
@@ -1709,8 +1711,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.38039216, g: 0.5372549, b: 0.78431374, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.7169812, g: 0.5558919, b: 0.32128873, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1733,7 +1735,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: bd01f96041b947b4bb3cb95220a6b991, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
