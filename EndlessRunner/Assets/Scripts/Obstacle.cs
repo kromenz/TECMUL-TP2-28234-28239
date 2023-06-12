@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Obstacle : MonoBehaviour {
 
     PlayerMovement playerMovement;
+    public AudioClip colisaoSound;
 
 	private void Start () {
         playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
@@ -14,6 +15,8 @@ public class Obstacle : MonoBehaviour {
     {
         if (collision.gameObject.name == "Player") {
             // Kill the player
+            
+            AudioSource.PlayClipAtPoint(colisaoSound, transform.position);
             playerMovement.Die();
         }
     }

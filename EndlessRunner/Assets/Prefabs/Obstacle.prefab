@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc654637b17dcb4c8dea59610ff55b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colisaoSound: {fileID: 8300000, guid: 75bb8b16fd25faa4c9802532a30fe53f, type: 3}
