@@ -32,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 horizontalMove = transform.right * horizontalInput * Time.fixedDeltaTime * horizontalMultiplier * 10;
 
         // Define os limites do movimento horizontal
-        float minX = -4.5f; // Define o limite mínimo no eixo X
-        float maxX = 4.5f;  // Define o limite máximo no eixo X
+        float minX = -4.5f; 
+        float maxX = 4.5f;  
         float clampedX = Mathf.Clamp(rb.position.x + horizontalMove.x, minX, maxX); // Aplica o limite
 
         // Atualiza o movimento horizontal com o valor limitado

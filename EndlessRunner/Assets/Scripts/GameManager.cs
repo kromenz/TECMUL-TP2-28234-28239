@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start () {
-        scoreText.color = new Color(0f, 0f, 0f);
+        scoreText.color = new Color(1f, 1f, 1f);
 
         gameOverUI.SetActive(false);
 
